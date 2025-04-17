@@ -1,3 +1,4 @@
+
 import { cn } from "@/lib/utils";
 
 const TransactionForm = () => {
@@ -129,7 +130,7 @@ const TransactionForm = () => {
       {/* Financial Details */}
       <div className="mb-2">
         <div className="bg-green-50 font-semibold px-1 py-0.5 border-t-2 border-x-2 border-gray-800">FINANCIAL DETAILS</div>
-        <div className="grid grid-cols-2 gap-2 border-2 border-t-0 border-gray-800">
+        <div className="grid grid-cols-3 gap-2 border-2 border-t-0 border-gray-800">
           <div className="p-2 text-xs border-r border-gray-800">
             <div className="font-semibold mb-1">COMMISSION DETAILS</div>
             <div className="grid grid-cols-2 gap-1">
@@ -142,7 +143,7 @@ const TransactionForm = () => {
               <div>TC FEE PAID BY: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
             </div>
           </div>
-          <div className="p-2 text-xs">
+          <div className="p-2 text-xs border-r border-gray-800">
             <div className="font-semibold mb-1">LENDER INFORMATION</div>
             <div className="grid grid-cols-1 gap-1">
               <div>COMPANY: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
@@ -152,13 +153,23 @@ const TransactionForm = () => {
               <div>LOAN TYPE: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
             </div>
           </div>
+          <div className="p-2 text-xs">
+            <div className="font-semibold mb-1">REFERRAL INFORMATION</div>
+            <div className="grid grid-cols-1 gap-1">
+              <div>COMPANY: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
+              <div>AGENT: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
+              <div>PHONE: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
+              <div>EMAIL: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
+              <div>FEE %: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Service Providers */}
       <div className="mb-2">
         <div className="bg-purple-50 font-semibold px-1 py-0.5 border-t-2 border-x-2 border-gray-800">SERVICE PROVIDERS</div>
-        <div className="grid grid-cols-3 gap-1 border-2 border-t-0 border-gray-800">
+        <div className="grid grid-cols-4 gap-1 border-2 border-t-0 border-gray-800">
           <div className="p-2 text-xs border-r border-gray-800">
             <div className="font-semibold mb-1">INSPECTION</div>
             <div>INSPECTOR: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
@@ -171,11 +182,17 @@ const TransactionForm = () => {
             <div>CONTACT: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
             <div>EMAIL: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
           </div>
-          <div className="p-2 text-xs">
+          <div className="p-2 text-xs border-r border-gray-800">
             <div className="font-semibold mb-1">TITLE</div>
             <div>COMPANY: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
             <div>PHONE: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
             <div>EMAIL: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
+          </div>
+          <div className="p-2 text-xs">
+            <div className="font-semibold mb-1">UTILITIES</div>
+            <div>ELECTRIC: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
+            <div>GAS: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
+            <div>WATER: <div className="border-b-2 border-gray-400 h-4 mb-1"></div></div>
           </div>
         </div>
       </div>
@@ -185,22 +202,23 @@ const TransactionForm = () => {
         <div className="bg-yellow-50 font-semibold px-1 py-0.5 border-t-2 border-x-2 border-gray-800">DOCUMENTATION CHECKLIST</div>
         <div className="grid grid-cols-8 gap-1 p-2 border-2 border-t-0 border-gray-800">
           {[
-            'AOS (AGREEMENT OF SALE)',
-            'DEED (PROPERTY DEED)',
-            'DUAL (DUAL AGENCY)',
-            'WIRE (WIRE TRANSFER)',
-            'CHECK (PAYMENT CHECK)',
-            'KPSS (KEYSTONE PROPERTY STMT)',
-            'SPD (SELLER PROP DISCLOSURE)',
-            'RLBPHN (LEAD BASED PAINT)',
-            'BEC (BUYER\'S EST. CLOSING)',
-            'PREQUAL (PRE-QUALIFICATION)',
-            'FYP (FIRST YEAR POLICY)',
-            'BAC (BUYER AGENT COMM)',
-            'SEC (SELLER EST. CLOSING)',
-            'DMN (DEED OF MINOR)',
-            'CBC (CLOSING BROKERAGE COMM)',
-            'HW (HOME WARRANTY)'
+            'AOS',
+            'DEED',
+            'DUAL',
+            'WIRE',
+            'CHECK',
+            'KPSS',
+            'SPD',
+            'RLBPHN',
+            'BEC',
+            'PREQUAL',
+            'FYP',
+            'BAC',
+            'SEC',
+            'DMN',
+            'CBC',
+            'HW',
+            'CN'
           ].map((item, i) => (
             <div key={i} className="flex items-center gap-1">
               <input type="checkbox" className="h-3 w-3 border-gray-800" />
@@ -210,7 +228,7 @@ const TransactionForm = () => {
         </div>
       </div>
 
-      {/* KW ASA Signatures - Moved below Documentation Checklist */}
+      {/* KW ASA Signatures - Right below Documentation Checklist */}
       <div className="mb-2">
         <div className="bg-gray-50 font-semibold px-1 py-0.5 border-t-2 border-x-2 border-gray-800">KW ASA SIGNATURES</div>
         <div className="flex gap-4 p-2 border-2 border-t-0 border-gray-800">
