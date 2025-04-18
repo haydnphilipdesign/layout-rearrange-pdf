@@ -1,27 +1,30 @@
 import { cn } from "@/lib/utils";
+
 const TransactionForm = () => {
-  return <div className="max-w-[8.5in] min-h-[11in] mx-auto bg-white p-2 text-[0.61rem] print:shadow-none">
+  return (
+    <div className="max-w-[8.5in] min-h-[11in] mx-auto bg-white p-2 text-[0.61rem] print:shadow-none">
       {/* Top Section */}
       <div className="grid grid-cols-3 gap-1 border-2 border-gray-800 p-1 mb-1">
         <div className="space-y-0.5">
           <div className="bg-gray-200 font-semibold px-1 py-0.5">PROPERTY DETAILS</div>
-          <div className="space-y-0.5">
-            <div>PROPERTY: <span className="border-b border-gray-300 inline-block w-32"></span></div>
-            <div>CLIENT: <span className="border-b border-gray-300 inline-block w-32"></span></div>
+          <div className="space-y-1">
+            <div>PROPERTY: <span className="border-b border-gray-300 inline-block w-40"></span></div>
+            <div>CLIENT: <span className="border-b border-gray-300 inline-block w-40"></span></div>
           </div>
         </div>
         <div className="space-y-0.5">
           <div className="bg-gray-200 font-semibold px-1 py-0.5">AGENT DETAILS</div>
-          <div className="space-y-0.5">
-            <div>AGENT: <span className="border-b border-gray-300 inline-block w-32"></span></div>
-            <div>ROLE: <span className="border-b border-gray-300 inline-block w-32"></span></div>
+          <div className="space-y-1">
+            <div>AGENT: <span className="border-b border-gray-300 inline-block w-40"></span></div>
+            <div>ROLE: <span className="border-b border-gray-300 inline-block w-40"></span></div>
           </div>
         </div>
         <div className="space-y-0.5">
           <div className="bg-gray-200 font-semibold px-1 py-0.5">CLOSING INFORMATION</div>
-          <div className="space-y-0.5">
+          <div className="space-y-1">
             <div>DATE: <span className="border-b border-gray-300 inline-block w-32"></span></div>
             <div>TIME: <span className="border-b border-gray-300 inline-block w-32"></span></div>
+            <div>LOCATION: <span className="border-b border-gray-300 inline-block w-32"></span></div>
             <div className="flex items-center gap-1">
               <span>SELLER ATTENDING:</span>
               <input type="checkbox" className="h-3 w-3 border-gray-300" />
@@ -154,8 +157,6 @@ const TransactionForm = () => {
             <div className="font-semibold mb-0.5">REFERRAL INFORMATION</div>
             <div className="grid grid-cols-1 gap-1">
               
-              <div>AGENT: <div className="border-b border-gray-400 h-3 mb-0.5"></div></div>
-              
               
               <div>DUE TO: <div className="border-b border-gray-400 h-3 mb-0.5"></div></div>
               <div>%: <div className="border-b border-gray-400 h-3 mb-0.5"></div></div>
@@ -199,21 +200,24 @@ const TransactionForm = () => {
       <div className="mb-0.5">
         <div className="bg-yellow-50 font-semibold px-1 py-0.5 border-t-2 border-x-2 border-gray-800">DOCUMENTATION CHECKLIST</div>
         <div className="grid grid-cols-8 gap-0.5 p-1 border-2 border-t-0 border-gray-800">
-          {['AOS', 'DEED', 'DUAL', 'WIRE', 'CHECK', 'KPSS', 'SPD', 'RLBPHN', 'BEC', 'PREQUAL', 'FYP', 'BAC', 'SEC', 'DMN', 'CBC', 'HW', 'CN'].map((item, i) => <div key={i} className="flex items-center gap-0.5">
+          {['AOS', 'DEED', 'DUAL', 'WIRE', 'CHECK', 'KPSS', 'SPD', 'RLBPHN', 'BEC', 'PREQUAL', 'FYP', 'BAC', 'SEC', 'DMN', 'CBC', 'HW', 'CN'].map((item, i) => (
+            <div key={i} className="flex items-center gap-0.5">
               <input type="checkbox" className="h-3 w-3 border-gray-800" />
               <span className="text-[0.61rem]">{item}</span>
-            </div>)}
-        </div>
-      </div>
-
-      {/* KW ASA Signatures - Right below Documentation Checklist */}
-      <div className="mb-0.5">
-        <div className="bg-gray-50 font-semibold px-1 py-0.5 border-t-2 border-x-2 border-gray-800">KW ASA SIGNATURES</div>
-        <div className="flex gap-3 p-1 border-2 border-t-0 border-gray-800">
-          {['BUYER', 'SELLER', 'AGENT'].map((item, i) => <div key={i} className="flex items-center gap-0.5">
-              <input type="checkbox" className="h-3 w-3 border-gray-800" />
-              <span className="text-[0.61rem]">{item}</span>
-            </div>)}
+            </div>
+          ))}
+          <div className="flex items-center gap-0.5">
+            <input type="checkbox" className="h-3 w-3 border-gray-800" />
+            <span className="text-[0.61rem]">BUYER</span>
+          </div>
+          <div className="flex items-center gap-0.5">
+            <input type="checkbox" className="h-3 w-3 border-gray-800" />
+            <span className="text-[0.61rem]">SELLER</span>
+          </div>
+          <div className="flex items-center gap-0.5">
+            <input type="checkbox" className="h-3 w-3 border-gray-800" />
+            <span className="text-[0.61rem]">AGENT</span>
+          </div>
         </div>
       </div>
 
@@ -221,6 +225,8 @@ const TransactionForm = () => {
       <div className="text-center text-[0.6rem] text-gray-500 mt-0.5">
         FORM VERSION 1.0 | UPDATED: APRIL 2023 | TRANSACTION COORDINATOR FORM
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default TransactionForm;
