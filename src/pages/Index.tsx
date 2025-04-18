@@ -6,17 +6,16 @@ const TransactionForm = () => {
       {/* Top Section */}
       <div className="grid grid-cols-3 gap-1 border-2 border-gray-800 p-1 mb-1">
         <div className="space-y-0.5">
-          <div className="bg-gray-200 font-semibold px-1 py-0.5">PROPERTY DETAILS</div>
-          <div className="space-y-1">
-            <div>PROPERTY: <span className="border-b border-gray-300 inline-block w-40"></span></div>
-            <div>CLIENT: <span className="border-b border-gray-300 inline-block w-40"></span></div>
+          <div className="bg-gray-200 font-bold text-sm px-1 py-1">PROPERTY ADDRESS</div>
+          <div className="space-y-1 mt-1">
+            <div><span className="border-b border-gray-300 inline-block w-full h-8"></span></div>
           </div>
         </div>
         <div className="space-y-0.5">
-          <div className="bg-gray-200 font-semibold px-1 py-0.5">AGENT DETAILS</div>
+          <div className="bg-gray-200 font-semibold px-1 py-0.5">CLIENT & AGENT DETAILS</div>
           <div className="space-y-1">
-            <div>AGENT: <span className="border-b border-gray-300 inline-block w-40"></span></div>
-            <div>ROLE: <span className="border-b border-gray-300 inline-block w-40"></span></div>
+            <div>CLIENT: <span className="border-b border-gray-300 inline-block w-40"></span></div>
+            <div>OPPOSING AGENT: <span className="border-b border-gray-300 inline-block w-40"></span></div>
           </div>
         </div>
         <div className="space-y-0.5">
