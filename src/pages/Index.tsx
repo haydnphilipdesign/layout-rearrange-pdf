@@ -17,7 +17,7 @@ const TransactionForm = () => {
             <div>CLIENT: <span className="border-b border-gray-300 inline-block w-40"></span></div>
             <div>AGENT: <span className="border-b border-gray-300 inline-block w-40"></span></div>
             <div>ROLE: <span className="border-b border-gray-300 inline-block w-40"></span></div>
-            <div>OPPOSING AGENT: <span className="border-b border-gray-300 inline-block w-40"></span></div>
+            <div>OPP. AGENT: <span className="border-b border-gray-300 inline-block w-40"></span></div>
           </div>
         </div>
         <div className="space-y-1">
