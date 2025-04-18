@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 
 const TransactionForm = () => {
-  return <div className="max-w-[8.5in] min-h-[11in] mx-auto bg-white p-4 text-[0.65rem] print:shadow-none">
-      {/* Top Section */}
-      <div className="grid grid-cols-3 gap-2 border-2 border-gray-800 p-2 mb-2">
+  return <div className="max-w-[8.5in] min-h-[11in] mx-auto bg-white p-4 text-[0.65rem] print:shadow-none flex flex-col">
+      {/* Top Section with reduced margin-bottom */}
+      <div className="grid grid-cols-3 gap-2 border-2 border-gray-800 p-2 mb-1.5">
         <div className="space-y-1">
           <div className="bg-gray-200 font-bold text-base px-2 py-1.5 text-center">PROPERTY ADDRESS</div>
           <div className="space-y-2 mt-2">
@@ -34,7 +34,7 @@ const TransactionForm = () => {
         </div>
       </div>
 
-      {/* Quick Reference */}
+      {/* Quick Reference with reduced spacing */}
       <div className="mb-1">
         <div className="bg-blue-50 font-semibold px-1 py-0.5 border-t-2 border-x-2 border-gray-800">QUICK REFERENCE</div>
         <div className="grid grid-cols-5 gap-1 text-[0.61rem] border-2 border-t-0 border-gray-800 p-1">
@@ -46,7 +46,7 @@ const TransactionForm = () => {
         </div>
       </div>
 
-      {/* Key Dates & Deadlines */}
+      {/* Key Dates & Deadlines with adjusted padding */}
       <div className="mb-1">
         <div className="bg-yellow-50 font-semibold px-1 py-0.5 border-t-2 border-x-2 border-gray-800">KEY DATES & DEADLINES</div>
         <div className="grid grid-cols-7 gap-1 text-[0.61rem] border-2 border-t-0 border-gray-800 p-1">
@@ -81,7 +81,7 @@ const TransactionForm = () => {
         </div>
       </div>
 
-      {/* Buyer & Seller Information */}
+      {/* Buyer & Seller Information with reduced gap */}
       <div className="grid grid-cols-2 gap-1 mb-1">
         <div>
           <div className="bg-green-50 font-semibold px-1 py-0.5 border-t-2 border-x-2 border-gray-800">BUYER INFORMATION</div>
@@ -103,9 +103,9 @@ const TransactionForm = () => {
         </div>
       </div>
 
-      {/* Financial Details */}
-      <div className="mb-2">
-        <div className="bg-green-50 font-semibold px-2 py-1 border-t-2 border-x-2 border-gray-800">FINANCIAL DETAILS</div>
+      {/* Financial Details with optimized spacing */}
+      <div className="mb-1">
+        <div className="bg-green-50 font-semibold px-2 py-0.5 border-t-2 border-x-2 border-gray-800">FINANCIAL DETAILS</div>
         <div className="grid grid-cols-3 gap-1 border-2 border-t-0 border-gray-800">
           <div className="p-2 text-[0.65rem] border-r border-gray-800">
             <div className="font-semibold mb-1">COMMISSION DETAILS</div>
@@ -136,9 +136,9 @@ const TransactionForm = () => {
         </div>
       </div>
 
-      {/* Service Providers */}
-      <div className="mb-2">
-        <div className="bg-purple-50 font-semibold px-2 py-1 border-t-2 border-x-2 border-gray-800">SERVICE PROVIDERS</div>
+      {/* Service Providers with adjusted padding */}
+      <div className="mb-1">
+        <div className="bg-purple-50 font-semibold px-2 py-0.5 border-t-2 border-x-2 border-gray-800">SERVICE PROVIDERS</div>
         <div className="grid grid-cols-4 gap-0 border-2 border-t-0 border-gray-800">
           <div className="p-2 text-[0.65rem] border-r border-gray-800">
             <div className="font-semibold mb-1">INSPECTION</div>
@@ -166,10 +166,10 @@ const TransactionForm = () => {
         </div>
       </div>
 
-      {/* Documentation Checklist */}
-      <div className="mb-1">
-        <div className="bg-yellow-50 font-semibold px-2 py-1 border-t-2 border-x-2 border-gray-800">DOCUMENTATION CHECKLIST</div>
-        <div className="grid grid-cols-8 gap-1 p-2 border-2 border-t-0 border-gray-800">
+      {/* Documentation Checklist with flex-grow to use remaining space */}
+      <div className="flex-grow">
+        <div className="bg-yellow-50 font-semibold px-2 py-0.5 border-t-2 border-x-2 border-gray-800">DOCUMENTATION CHECKLIST</div>
+        <div className="grid grid-cols-8 gap-1 p-2 border-2 border-t-0 border-gray-800 h-full">
           {['AOS', 'DEED', 'DUAL', 'WIRE', 'CHECK', 'KPSS', 'SPD', 'RLBPHN', 'BEC', 'PREQUAL', 'FYP', 'BAC', 'SEC', 'DMN', 'CBC', 'HW', 'CN'].map((item, i) => (
             <div key={i} className="flex items-center gap-1">
               <input type="checkbox" className="h-3 w-3 border-gray-800" />
