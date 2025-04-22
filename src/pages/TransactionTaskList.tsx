@@ -1,4 +1,3 @@
-
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -46,7 +45,7 @@ const SmallChecklistItem = ({
   </div>
 );
 
-// --- Adjusted column sections for best balance ---
+// --- Updated column sections for better height balance and print fit ---
 const ChecklistColumnA = () => (
   <div className="flex flex-col gap-0.5">
     <SectionHeader>1. Command</SectionHeader>
@@ -84,11 +83,7 @@ const ChecklistColumnA = () => (
     <SectionHeader>7. Right of First Refusal</SectionHeader>
     <SmallChecklistItem label="Requested" />
     <SmallChecklistItem label="Received" />
-  </div>
-);
 
-const ChecklistColumnB = () => (
-  <div className="flex flex-col gap-0.5">
     <SectionHeader>8. Home Inspection Scheduled</SectionHeader>
     <SmallChecklistItem label="House/Septic Ready" />
     <SmallChecklistItem label="Gate Pass" />
@@ -106,7 +101,11 @@ const ChecklistColumnB = () => (
     <SmallChecklistItem label="Prepared" />
     <SmallChecklistItem label="Sent" />
     <SmallChecklistItem label="Signed" />
+  </div>
+);
 
+const ChecklistColumnB = () => (
+  <div className="flex flex-col gap-0.5">
     <SectionHeader>11. Order Resale Certificate</SectionHeader>
     <SmallChecklistItem label="Date:" className="pl-2" blankWidth="w-8" disableCheckbox />
     <SmallChecklistItem label="Requested Payment from Seller:" className="pl-2" blankWidth="w-8" disableCheckbox />
@@ -140,11 +139,7 @@ const ChecklistColumnB = () => (
     <span className="text-[0.63rem]">Phone: <span className="border-b border-gray-400 inline-block w-20"></span></span>
     <span className="text-[0.63rem]">Email: <span className="border-b border-gray-400 inline-block w-20"></span></span>
     <span className="text-[0.63rem]">Cost: <span className="border-b border-gray-400 inline-block w-16"></span></span>
-  </div>
-);
 
-const ChecklistColumnC = () => (
-  <div className="flex flex-col gap-0.5">
     <SectionHeader>13. Appraisal</SectionHeader>
     <SmallChecklistItem label="Ordered" />
     <SmallChecklistItem label="Scheduled:" blankWidth="w-11" disableCheckbox />
@@ -177,7 +172,11 @@ const ChecklistColumnC = () => (
     <SmallChecklistItem label="Request Receipts" />
     <SmallChecklistItem label="Repairs Finished" />
     <SmallChecklistItem label="Receipts Received" />
+  </div>
+);
 
+const ChecklistColumnC = () => (
+  <div className="flex flex-col gap-0.5">
     <SectionHeader>17. Utility Info</SectionHeader>
     <SmallChecklistItem label="Requested from Seller" />
     <SmallChecklistItem label="Received" />
@@ -266,12 +265,10 @@ const DocumentationChecklist = () => (
   </BorderedBox>
 );
 
-// --- Main page, 3-column optimized version ---
 const TransactionTaskList = () => {
   return (
     <div className="w-full flex flex-col items-center pt-4 pb-2 print:shadow-none bg-white">
       <BorderedBox className="max-w-[8.5in] min-h-[11in] mx-auto bg-white print:shadow-none print:border-2 border-gray-900 shadow px-2.5 pb-1 flex flex-col gap-1 justify-between" >
-        {/* Title and Quick Navigation */}
         <div className="flex justify-between items-end mt-0.5 mb-1">
           <div>
             <h1 className="text-[1.25rem] font-bold tracking-tight text-gray-900 leading-tight">Transaction Coordinator Task List</h1>
@@ -280,10 +277,8 @@ const TransactionTaskList = () => {
           <Link to="/" className="text-xs underline text-blue-700 print:hidden">Home</Link>
         </div>
 
-        {/* Documentation Checklist, always at top */}
         <DocumentationChecklist />
 
-        {/* Three column layout in a visually strong border box */}
         <BorderedBox className="border-2 border-gray-900 mb-1 pt-1 pb-0.5 px-1.5">
           <div className="grid grid-cols-3 gap-x-3 gap-y-1">
             <ChecklistColumnA />
@@ -292,7 +287,6 @@ const TransactionTaskList = () => {
           </div>
         </BorderedBox>
 
-        {/* Footer */}
         <div className="flex justify-end pt-1 pb-0.5">
           <span className="text-[0.6rem] text-gray-400 pr-2">
             CLIP v{`${new Date().getFullYear()}`} • Transaction Task List Signature Edition™
