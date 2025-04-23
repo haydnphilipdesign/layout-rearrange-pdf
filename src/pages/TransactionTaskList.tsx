@@ -23,12 +23,15 @@ const SectionHeader = ({ children, className = "" }: { children: React.ReactNode
 
 const SmallChecklistItem = ({
   label, sublabel, id, className = "", blankWidth = "", vertical = false, mini = false, disableCheckbox = false,
+  horizontal = false, // New prop for side-by-side layout
 }: {
   label: string; sublabel?: string; id?: string; className?: string; blankWidth?: string; vertical?: boolean; mini?: boolean; disableCheckbox?: boolean;
+  horizontal?: boolean;
 }) => (
   <div
     className={cn(
-      "flex items-start gap-1",
+      horizontal ? "inline-flex mr-4" : "flex",
+      "items-start gap-1",
       vertical ? "flex-col items-start" : "flex-row items-center",
       mini && "text-[0.62rem]",
       className
@@ -49,27 +52,41 @@ const SmallChecklistItem = ({
 const ChecklistColumnA = () => (
   <div className="flex flex-col gap-0.5">
     <SectionHeader>1. Command</SectionHeader>
-    <SmallChecklistItem label="File Started" />
-    <SmallChecklistItem label="File Submitted" />
-    <SmallChecklistItem label="File Approved" />
-    <SmallChecklistItem label="Commission Submitted" />
+    <div className="flex flex-wrap">
+      <SmallChecklistItem label="File Started" horizontal />
+      <SmallChecklistItem label="File Submitted" horizontal />
+    </div>
+    <div className="flex flex-wrap">
+      <SmallChecklistItem label="File Approved" horizontal />
+      <SmallChecklistItem label="Commission Submitted" horizontal />
+    </div>
 
     <SectionHeader>2. File Preparation</SectionHeader>
-    <SmallChecklistItem label="Added to Pending Checklist" />
-    <SmallChecklistItem label="Added to Calendar" />
-    <SmallChecklistItem label="Tasks Set Up" />
-    <SmallChecklistItem label="Pended MLS" />
+    <div className="flex flex-wrap">
+      <SmallChecklistItem label="Added to Pending Checklist" horizontal />
+      <SmallChecklistItem label="Added to Calendar" horizontal />
+    </div>
+    <div className="flex flex-wrap">
+      <SmallChecklistItem label="Tasks Set Up" horizontal />
+      <SmallChecklistItem label="Pended MLS" horizontal />
+    </div>
     <SmallChecklistItem label="Added to ShowingTime" />
 
     <SectionHeader>3. Introduction</SectionHeader>
-    <SmallChecklistItem label="Sent to Client" />
-    <SmallChecklistItem label="Sent to Agent" />
-    <SmallChecklistItem label="Sent to Attorney" />
-    <SmallChecklistItem label="Sent to Lender" />
+    <div className="flex flex-wrap">
+      <SmallChecklistItem label="Sent to Client" horizontal />
+      <SmallChecklistItem label="Sent to Agent" horizontal />
+    </div>
+    <div className="flex flex-wrap">
+      <SmallChecklistItem label="Sent to Attorney" horizontal />
+      <SmallChecklistItem label="Sent to Lender" horizontal />
+    </div>
 
     <SectionHeader>4. Deposit</SectionHeader>
-    <SmallChecklistItem label="Follow Up Sent to Buyer" />
-    <SmallChecklistItem label="First Deposit Received" />
+    <div className="flex flex-wrap">
+      <SmallChecklistItem label="Follow Up Sent to Buyer" horizontal />
+      <SmallChecklistItem label="First Deposit Received" horizontal />
+    </div>
     <SmallChecklistItem label="Second Deposit Received" />
 
     <SectionHeader>5. Mtg App & Appraisal Order</SectionHeader>
@@ -107,15 +124,16 @@ const ChecklistColumnA = () => (
 const ChecklistColumnB = () => (
   <div className="flex flex-col gap-0.5">
     <SectionHeader>11. Order Resale Certificate</SectionHeader>
-    <SmallChecklistItem label="Date:" className="pl-2" blankWidth="w-8" disableCheckbox />
-    <SmallChecklistItem label="Requested Payment from Seller:" className="pl-2" blankWidth="w-8" disableCheckbox />
-    <SmallChecklistItem label="Seller Paid:" className="pl-2" blankWidth="w-8" disableCheckbox />
-    <SmallChecklistItem label="Resale Cert Received" />
-    <div className="pl-3 flex flex-col gap-0.5">
-      <SmallChecklistItem label="Copy Sent to Buyer" mini />
-      <SmallChecklistItem label="Copy Sent to Seller" mini />
-      <SmallChecklistItem label="Copy Sent to Title Company" mini />
+    <div className="flex flex-wrap">
+      <SmallChecklistItem label="Date:" className="pl-2" blankWidth="w-8" disableCheckbox horizontal />
+      <SmallChecklistItem label="Seller Paid:" className="pl-2" blankWidth="w-8" disableCheckbox horizontal />
     </div>
+    <SmallChecklistItem label="Resale Cert Received" />
+    <div className="pl-3 flex flex-wrap">
+      <SmallChecklistItem label="Copy Sent to Buyer" mini horizontal />
+      <SmallChecklistItem label="Copy Sent to Seller" mini horizontal />
+    </div>
+    <SmallChecklistItem label="Copy Sent to Title Company" mini className="pl-3" />
     <span className="font-semibold text-[0.63rem] mt-1">Receipt of Documents:</span>
     <SmallChecklistItem label="Sent to Buyer:" className="pl-2" blankWidth="w-10" disableCheckbox />
     <SmallChecklistItem label="Fully Signed" className="pl-2" />
@@ -172,10 +190,14 @@ const ChecklistColumnB = () => (
 const ChecklistColumnC = () => (
   <div className="flex flex-col gap-0.5">
     <SectionHeader>16. BRTI Repairs</SectionHeader>
-    <SmallChecklistItem label="Follow Up with Seller" />
-    <SmallChecklistItem label="Request Receipts" />
-    <SmallChecklistItem label="Repairs Finished" />
-    <SmallChecklistItem label="Receipts Received" />
+    <div className="flex flex-wrap">
+      <SmallChecklistItem label="Follow Up with Seller" horizontal />
+      <SmallChecklistItem label="Request Receipts" horizontal />
+    </div>
+    <div className="flex flex-wrap">
+      <SmallChecklistItem label="Repairs Finished" horizontal />
+      <SmallChecklistItem label="Receipts Received" horizontal />
+    </div>
 
     <SectionHeader>17. Utility Info</SectionHeader>
     <SmallChecklistItem label="Requested from Seller" />
