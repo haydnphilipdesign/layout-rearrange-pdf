@@ -14,7 +14,7 @@ const BorderedBox = ({ children, className = "" }: { children: React.ReactNode; 
 
 const SectionHeader = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <div className={cn(
-    "uppercase font-semibold text-[0.73rem] tracking-wide bg-[#F6F6F7] border-t-2 border-x-2 border-gray-900 px-2 py-1 mb-0.5",
+    "uppercase font-semibold text-[0.73rem] tracking-wide bg-[#F6F6F7] border-t-2 border-x-2 border-gray-900 px-2 py-1",
     className
   )}>
     {children}
@@ -23,7 +23,7 @@ const SectionHeader = ({ children, className = "" }: { children: React.ReactNode
 
 const SmallChecklistItem = ({
   label, sublabel, id, className = "", blankWidth = "", vertical = false, mini = false, disableCheckbox = false,
-  horizontal = false, // New prop for side-by-side layout
+  horizontal = false,
 }: {
   label: string; sublabel?: string; id?: string; className?: string; blankWidth?: string; vertical?: boolean; mini?: boolean; disableCheckbox?: boolean;
   horizontal?: boolean;
@@ -73,13 +73,12 @@ const DocumentationChecklist = () => (
   </BorderedBox>
 );
 
-// --- Updated column sections for better height balance and print fit ---
 const ChecklistColumnA = () => (
   <div className="flex flex-col gap-0.5">
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>1. Command</SectionHeader>
       <div className="p-1">
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap gap-x-4">
           <SmallChecklistItem label="File Started" horizontal />
           <SmallChecklistItem label="File Submitted" horizontal />
           <SmallChecklistItem label="File Approved" horizontal />
@@ -91,7 +90,7 @@ const ChecklistColumnA = () => (
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>2. File Preparation</SectionHeader>
       <div className="p-1">
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap gap-x-4">
           <SmallChecklistItem label="Added to Pending Checklist" horizontal />
           <SmallChecklistItem label="Added to Calendar" horizontal />
           <SmallChecklistItem label="Tasks Set Up" horizontal />
@@ -104,7 +103,7 @@ const ChecklistColumnA = () => (
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>3. Introduction</SectionHeader>
       <div className="p-1">
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap gap-x-4">
           <SmallChecklistItem label="Sent to Client" horizontal />
           <SmallChecklistItem label="Sent to Agent" horizontal />
           <SmallChecklistItem label="Sent to Attorney" horizontal />
@@ -116,7 +115,7 @@ const ChecklistColumnA = () => (
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>4. Deposit</SectionHeader>
       <div className="p-1">
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap gap-x-4">
           <SmallChecklistItem label="Follow Up Sent to Buyer" horizontal />
           <SmallChecklistItem label="First Deposit Received" horizontal />
           <SmallChecklistItem label="Second Deposit Received" horizontal />
@@ -127,36 +126,46 @@ const ChecklistColumnA = () => (
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>5. Mtg App & Appraisal Order</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Follow Up with Buyer’s Agent" />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="Follow Up with Buyer's Agent" horizontal />
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>6. Title Work</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Title Work Ordered" />
-        <SmallChecklistItem label="Seller's Info Sent to Title Company" />
-        <SmallChecklistItem label="TC Invoice Sent to Title Company" />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="Title Work Ordered" horizontal />
+          <SmallChecklistItem label="Seller's Info Sent to Title Company" horizontal />
+          <SmallChecklistItem label="TC Invoice Sent to Title Company" horizontal />
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>7. Right of First Refusal</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Requested" />
-        <SmallChecklistItem label="Received" />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="Requested" horizontal />
+          <SmallChecklistItem label="Received" horizontal />
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>8. Home Inspection Scheduled</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="House/Septic Ready" />
-        <SmallChecklistItem label="Gate Pass" />
-        <div className="pl-3">
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="House/Septic Ready" horizontal />
+          <SmallChecklistItem label="Gate Pass" horizontal />
+        </div>
+        <div className="flex items-center gap-x-2 mt-1">
           <span className="font-medium text-[0.63rem]">Inspection Reports:</span>
-          <SmallChecklistItem label="Received" className="pl-2" mini />
-          <SmallChecklistItem label="Sent to Client" className="pl-2" mini />
+          <div className="flex gap-x-4">
+            <SmallChecklistItem label="Received" mini horizontal />
+            <SmallChecklistItem label="Sent to Client" mini horizontal />
+          </div>
         </div>
       </div>
     </BorderedBox>
@@ -164,17 +173,21 @@ const ChecklistColumnA = () => (
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>9. BRTI</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Prepared/Received" />
-        <SmallChecklistItem label="Sent to Seller" />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="Prepared/Received" horizontal />
+          <SmallChecklistItem label="Sent to Seller" horizontal />
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>10. CIT Addendum</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Prepared" />
-        <SmallChecklistItem label="Sent" />
-        <SmallChecklistItem label="Signed" />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="Prepared" horizontal />
+          <SmallChecklistItem label="Sent" horizontal />
+          <SmallChecklistItem label="Signed" horizontal />
+        </div>
       </div>
     </BorderedBox>
   </div>
@@ -185,20 +198,31 @@ const ChecklistColumnB = () => (
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>11. Order Resale Certificate</SectionHeader>
       <div className="p-1">
-        <div className="flex flex-wrap">
-          <SmallChecklistItem label="Date:" className="pl-2" blankWidth="w-8" disableCheckbox horizontal />
-          <SmallChecklistItem label="Seller Paid:" className="pl-2" blankWidth="w-8" disableCheckbox horizontal />
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Date:</span>
+            <span className="border-b border-gray-400 inline-block w-16">&nbsp;</span>
+          </div>
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Seller Paid:</span>
+            <span className="border-b border-gray-400 inline-block w-16">&nbsp;</span>
+          </div>
           <SmallChecklistItem label="Resale Cert Received" horizontal />
         </div>
-        <div className="flex flex-wrap">
-          <SmallChecklistItem label="Copy Sent to Buyer" mini horizontal />
-          <SmallChecklistItem label="Copy Sent to Seller" mini horizontal />
-          <SmallChecklistItem label="Copy Sent to Title Company" mini horizontal />
+        <div className="flex flex-wrap gap-x-4 mt-1">
+          <SmallChecklistItem label="Copy Sent to Buyer" horizontal />
+          <SmallChecklistItem label="Copy Sent to Seller" horizontal />
+          <SmallChecklistItem label="Copy Sent to Title Company" horizontal />
         </div>
-        <span className="font-semibold text-[0.63rem] mt-1">Receipt of Documents:</span>
-        <div className="flex flex-wrap">
-          <SmallChecklistItem label="Sent to Buyer:" className="pl-2" blankWidth="w-10" disableCheckbox horizontal />
-          <SmallChecklistItem label="Fully Signed" horizontal />
+        <div className="mt-1">
+          <span className="font-semibold text-[0.63rem]">Receipt of Documents:</span>
+          <div className="flex flex-wrap items-center gap-x-4 mt-0.5">
+            <div className="flex items-center gap-x-1 whitespace-nowrap">
+              <span className="text-[0.63rem]">Sent to Buyer:</span>
+              <span className="border-b border-gray-400 inline-block w-16">&nbsp;</span>
+            </div>
+            <SmallChecklistItem label="Fully Signed" horizontal />
+          </div>
         </div>
       </div>
     </BorderedBox>
@@ -206,47 +230,84 @@ const ChecklistColumnB = () => (
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>11b. Additional Info</SectionHeader>
       <div className="p-1">
-        <span className="text-[0.63rem]">Name: <span className="border-b border-gray-400 inline-block w-20"></span></span>
-        <span className="text-[0.63rem]">Phone: <span className="border-b border-gray-400 inline-block w-20"></span></span>
-        <span className="text-[0.63rem]">Email: <span className="border-b border-gray-400 inline-block w-20"></span></span>
-        <span className="text-[0.63rem]">Resale Cert Expiration: <span className="border-b border-gray-400 inline-block w-11"></span></span>
-        <span className="text-[0.63rem]">Cost: <span className="border-b border-gray-400 inline-block w-16"></span></span>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Name:</span>
+            <span className="border-b border-gray-400 inline-block w-24">&nbsp;</span>
+          </div>
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Phone:</span>
+            <span className="border-b border-gray-400 inline-block w-24">&nbsp;</span>
+          </div>
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Email:</span>
+            <span className="border-b border-gray-400 inline-block w-24">&nbsp;</span>
+          </div>
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Cost:</span>
+            <span className="border-b border-gray-400 inline-block w-24">&nbsp;</span>
+          </div>
+          <div className="col-span-2 flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Resale Cert Expiration:</span>
+            <span className="border-b border-gray-400 inline-block w-24">&nbsp;</span>
+          </div>
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>12. Certificate of Occupancy</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Request Payment" />
-        <SmallChecklistItem label="Seller Paid" />
-        <SmallChecklistItem label="Inspection Set" />
-        <SmallChecklistItem label="C/O Received" />
-        <SmallChecklistItem label="Sent Copy to Buyer" />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="Request Payment" horizontal />
+          <SmallChecklistItem label="Seller Paid" horizontal />
+          <SmallChecklistItem label="Inspection Set" horizontal />
+          <SmallChecklistItem label="C/O Received" horizontal />
+          <SmallChecklistItem label="Sent Copy to Buyer" horizontal />
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>12b. Additional Info</SectionHeader>
       <div className="p-1">
-        <span className="text-[0.63rem]">Township: <span className="border-b border-gray-400 inline-block w-20"></span></span>
-        <span className="text-[0.63rem]">Phone: <span className="border-b border-gray-400 inline-block w-20"></span></span>
-        <span className="text-[0.63rem]">Email: <span className="border-b border-gray-400 inline-block w-20"></span></span>
-        <span className="text-[0.63rem]">Cost: <span className="border-b border-gray-400 inline-block w-16"></span></span>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Township:</span>
+            <span className="border-b border-gray-400 inline-block w-20">&nbsp;</span>
+          </div>
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Phone:</span>
+            <span className="border-b border-gray-400 inline-block w-20">&nbsp;</span>
+          </div>
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Email:</span>
+            <span className="border-b border-gray-400 inline-block w-20">&nbsp;</span>
+          </div>
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Cost:</span>
+            <span className="border-b border-gray-400 inline-block w-16">&nbsp;</span>
+          </div>
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>13. Appraisal</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Ordered" />
-        <SmallChecklistItem label="Scheduled:" blankWidth="w-11" disableCheckbox />
-        <SmallChecklistItem label="Value OK?" />
-        <span className="font-semibold text-[0.62rem]">Appraisal Repairs</span>
-        <div className="pl-2 flex flex-col gap-0.5">
-          <SmallChecklistItem label="Yes" mini />
-          <SmallChecklistItem label="Repairs Completed:" className="pl-3" blankWidth="w-10" disableCheckbox mini />
-          <SmallChecklistItem label="Notify Lender:" className="pl-3" blankWidth="w-10" disableCheckbox mini />
-          <SmallChecklistItem label="No" mini />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="Ordered" horizontal />
+          <SmallChecklistItem label="Scheduled:" blankWidth="w-11" disableCheckbox />
+          <SmallChecklistItem label="Value OK?" horizontal />
+        </div>
+        <div className="flex flex-wrap gap-x-4 mt-1">
+          <span className="font-semibold text-[0.62rem]">Appraisal Repairs</span>
+          <div className="pl-2 flex flex-col gap-0.5">
+            <SmallChecklistItem label="Yes" mini />
+            <SmallChecklistItem label="Repairs Completed:" className="pl-3" blankWidth="w-10" disableCheckbox mini />
+            <SmallChecklistItem label="Notify Lender:" className="pl-3" blankWidth="w-10" disableCheckbox mini />
+            <SmallChecklistItem label="No" mini />
+          </div>
         </div>
       </div>
     </BorderedBox>
@@ -254,27 +315,45 @@ const ChecklistColumnB = () => (
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>13b. Additional Info</SectionHeader>
       <div className="p-1">
-        <span className="text-[0.63rem]">Appraiser: <span className="border-b border-gray-400 inline-block w-14"></span></span>
-        <span className="text-[0.63rem]">Date of Inspection: <span className="border-b border-gray-400 inline-block w-14"></span></span>
-        <span className="text-[0.63rem]">Phone: <span className="border-b border-gray-400 inline-block w-14"></span></span>
-        <span className="text-[0.63rem]">Email: <span className="border-b border-gray-400 inline-block w-18"></span></span>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Appraiser:</span>
+            <span className="border-b border-gray-400 inline-block w-14">&nbsp;</span>
+          </div>
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Date of Inspection:</span>
+            <span className="border-b border-gray-400 inline-block w-14">&nbsp;</span>
+          </div>
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Phone:</span>
+            <span className="border-b border-gray-400 inline-block w-14">&nbsp;</span>
+          </div>
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Email:</span>
+            <span className="border-b border-gray-400 inline-block w-18">&nbsp;</span>
+          </div>
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>14. Home Warranty</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Ordered" />
-        <SmallChecklistItem label="Sent Invoice to Title Company" />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="Ordered" horizontal />
+          <SmallChecklistItem label="Sent Invoice to Title Company" horizontal />
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>15. Title Work</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Title Work Ordered" />
-        <SmallChecklistItem label="Seller's Info Sent to Title Company" />
-        <SmallChecklistItem label="TC Invoice Sent to Title Company" />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="Title Work Ordered" horizontal />
+          <SmallChecklistItem label="Seller's Info Sent to Title Company" horizontal />
+          <SmallChecklistItem label="TC Invoice Sent to Title Company" horizontal />
+        </div>
       </div>
     </BorderedBox>
   </div>
@@ -285,7 +364,7 @@ const ChecklistColumnC = () => (
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>16. BRTI Repairs</SectionHeader>
       <div className="p-1">
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap gap-x-4">
           <SmallChecklistItem label="Follow Up with Seller" horizontal />
           <SmallChecklistItem label="Request Receipts" horizontal />
           <SmallChecklistItem label="Repairs Finished" horizontal />
@@ -297,9 +376,14 @@ const ChecklistColumnC = () => (
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>17. Utility Info</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Requested from Seller" />
-        <SmallChecklistItem label="Received" />
-        <SmallChecklistItem label="Sent to Buyer:" blankWidth="w-11" disableCheckbox />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="Requested from Seller" horizontal />
+          <SmallChecklistItem label="Received" horizontal />
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Sent to Buyer:</span>
+            <span className="border-b border-gray-400 inline-block w-20">&nbsp;</span>
+          </div>
+        </div>
       </div>
     </BorderedBox>
 
@@ -307,33 +391,51 @@ const ChecklistColumnC = () => (
       <SectionHeader>18. Closing Attendance</SectionHeader>
       <div className="p-1">
         <span className="font-semibold text-[0.62rem]">Client Attendance (Choose One):</span>
-        <SmallChecklistItem label="Client Attending" mini />
-        <SmallChecklistItem label="Documents Sent to Client:" blankWidth="w-10" disableCheckbox mini />
-        <SmallChecklistItem label="Documents Signed Early at Title Company:" blankWidth="w-13" disableCheckbox mini />
+        <div className="flex flex-wrap gap-x-4 mt-1">
+          <SmallChecklistItem label="Client Attending" horizontal />
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <SmallChecklistItem label="Documents Sent to Client:" horizontal />
+            <span className="border-b border-gray-400 inline-block w-20">&nbsp;</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-x-1 whitespace-nowrap mt-1">
+          <SmallChecklistItem label="Documents Signed Early at Title Company:" horizontal />
+          <span className="border-b border-gray-400 inline-block w-20">&nbsp;</span>
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>19. Escrow Check</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Request Escrow Check:" blankWidth="w-10" disableCheckbox />
-        <SmallChecklistItem label="Confirm Receipt" />
+        <div className="flex flex-wrap items-center gap-x-4">
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.63rem]">Request Escrow Check:</span>
+            <span className="border-b border-gray-400 inline-block w-20">&nbsp;</span>
+          </div>
+          <SmallChecklistItem label="Confirm Receipt" horizontal />
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>19b. Additional Info</SectionHeader>
       <div className="p-1">
-        <span className="text-[0.63rem]">(Choose One):<span className="ml-2">Convention Check / Electronic Check</span></span>
+        <div className="flex items-center gap-x-2">
+          <span className="text-[0.63rem]">(Choose One):</span>
+          <span className="text-[0.63rem]">Convention Check / Electronic Check</span>
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>20. Settlement</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="Send Request to Title Company" />
-        <SmallChecklistItem label="Clear to Close" />
-        <SmallChecklistItem label="Send Settlement Notice" />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="Send Request to Title Company" horizontal />
+          <SmallChecklistItem label="Clear to Close" horizontal />
+          <SmallChecklistItem label="Send Settlement Notice" horizontal />
+        </div>
         <div className="pl-3 flex flex-col gap-0.5">
           <SmallChecklistItem label="Listing Agent" mini />
           <SmallChecklistItem label="Seller" mini />
@@ -370,16 +472,26 @@ const ChecklistColumnC = () => (
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>20b. Additional Info</SectionHeader>
       <div className="p-1">
-        <span className="text-[0.62rem]">Preferred Time: <span className="border-b border-gray-400 inline-block w-11"></span></span>
-        <span className="text-[0.62rem]">Preferred Location: <span className="border-b border-gray-400 inline-block w-14"></span></span>
+        <div className="grid grid-cols-2 gap-2">
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.62rem]">Preferred Time:</span>
+            <span className="border-b border-gray-400 inline-block w-11">&nbsp;</span>
+          </div>
+          <div className="flex items-center gap-x-1 whitespace-nowrap">
+            <span className="text-[0.62rem]">Preferred Location:</span>
+            <span className="border-b border-gray-400 inline-block w-14">&nbsp;</span>
+          </div>
+        </div>
       </div>
     </BorderedBox>
 
     <BorderedBox className="border-2 border-gray-900 mb-2">
       <SectionHeader>21. Close Out Listing in MLS</SectionHeader>
       <div className="p-1">
-        <SmallChecklistItem label="PMAR" />
-        <SmallChecklistItem label="GLVR" />
+        <div className="flex flex-wrap gap-x-4">
+          <SmallChecklistItem label="PMAR" horizontal />
+          <SmallChecklistItem label="GLVR" horizontal />
+        </div>
       </div>
     </BorderedBox>
   </div>
