@@ -14,7 +14,7 @@ const BorderedBox = ({ children, className = "" }: { children: React.ReactNode; 
 
 const SectionHeader = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <div className={cn(
-    "uppercase font-semibold text-[0.73rem] tracking-wide bg-gray-100 border-t-2 border-x-2 border-gray-900 px-2 py-1 mb-0.5",
+    "uppercase font-semibold text-[0.73rem] tracking-wide bg-[#F6F6F7] border-t-2 border-x-2 border-gray-900 px-2 py-1 mb-0.5",
     className
   )}>
     {children}
@@ -151,32 +151,32 @@ const ChecklistColumnB = () => (
       <SmallChecklistItem label="Notify Lender:" className="pl-3" blankWidth="w-10" disableCheckbox mini />
       <SmallChecklistItem label="No" mini />
     </div>
+
     <SectionHeader>13b. Additional Info</SectionHeader>
     <span className="text-[0.63rem]">Appraiser: <span className="border-b border-gray-400 inline-block w-14"></span></span>
     <span className="text-[0.63rem]">Date of Inspection: <span className="border-b border-gray-400 inline-block w-14"></span></span>
     <span className="text-[0.63rem]">Phone: <span className="border-b border-gray-400 inline-block w-14"></span></span>
     <span className="text-[0.63rem]">Email: <span className="border-b border-gray-400 inline-block w-18"></span></span>
 
-    <SectionHeader>14. Mortgage Commitment</SectionHeader>
-    <SmallChecklistItem label="Due Date:" blankWidth="w-10" disableCheckbox />
-    <SmallChecklistItem label="Requested:" blankWidth="w-10" disableCheckbox />
-    <SmallChecklistItem label="Received:" blankWidth="w-10" disableCheckbox />
-    <SmallChecklistItem label="Sent to Seller" />
-
-    <SectionHeader>15. Home Warranty</SectionHeader>
+    <SectionHeader>14. Home Warranty</SectionHeader>
     <SmallChecklistItem label="Ordered" />
     <SmallChecklistItem label="Sent Invoice to Title Company" />
 
-    <SectionHeader>16. BRTI Repairs</SectionHeader>
-    <SmallChecklistItem label="Follow Up with Seller" />
-    <SmallChecklistItem label="Request Receipts" />
-    <SmallChecklistItem label="Repairs Finished" />
-    <SmallChecklistItem label="Receipts Received" />
+    <SectionHeader>15. Title Work</SectionHeader>
+    <SmallChecklistItem label="Title Work Ordered" />
+    <SmallChecklistItem label="Seller's Info Sent to Title Company" />
+    <SmallChecklistItem label="TC Invoice Sent to Title Company" />
   </div>
 );
 
 const ChecklistColumnC = () => (
   <div className="flex flex-col gap-0.5">
+    <SectionHeader>16. BRTI Repairs</SectionHeader>
+    <SmallChecklistItem label="Follow Up with Seller" />
+    <SmallChecklistItem label="Request Receipts" />
+    <SmallChecklistItem label="Repairs Finished" />
+    <SmallChecklistItem label="Receipts Received" />
+
     <SectionHeader>17. Utility Info</SectionHeader>
     <SmallChecklistItem label="Requested from Seller" />
     <SmallChecklistItem label="Received" />
